@@ -1,31 +1,44 @@
 <resources>
 
-    <!-- Base application theme. -->
+    <!-- Base application theme with Action Bar -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+        <!-- Customize your theme here -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
+    <!-- Theme without Action Bar -->
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- No Action Bar and No Title -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/colorPrimary</item> <!-- Retaining color consistency -->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-
+    <!-- App Bar Overlay: Used to darken the Action Bar -->
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
+    <!-- Popup Overlay: Light popup style -->
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="AppTheme.Toolbar" parent="ThemeOverlay.AppCompat.ActionBar" />
+    <!-- Custom Toolbar Style -->
+    <style name="AppTheme.Toolbar" parent="ThemeOverlay.AppCompat.ActionBar">
+        <!-- Customize your toolbar appearance -->
+        <item name="android:background">@android:color/transparent</item>
+    </style>
 
-
+    <!-- Transparent Status Bar Theme -->
     <style name="MyAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Make the Action Bar and Status Bar transparent -->
         <item name="colorPrimary">@android:color/transparent</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowActionBarOverlay">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
+        <!-- Optional: Light status bar icons -->
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
 </resources>

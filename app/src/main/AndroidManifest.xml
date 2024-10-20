@@ -1,52 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.shashank.platform.furnitureecommerceappui">
+    package="com.shashank.platform.furnitureecommerceappui"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <!-- Izin yang diperlukan untuk aplikasi -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:icon="@drawable/ic_launcher_background"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        tools:ignore="AllowBackup">
+        android:theme="@style/AppTheme">
+
+        <!-- FileProvider untuk akses file melalui aplikasi -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.shashank.platform.furnitureecommerceappui.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <!-- MainActivity: Aktivitas utama dengan tema MyAppTheme -->
         <activity
-            android:name=".Main5Activity"
-            android:label=""
-            android:screenOrientation="portrait"
-            android:theme="@style/MyAppTheme"
-            android:windowSoftInputMode="stateHidden|adjustPan"/>
-        <activity
-            android:name=".Main4Activity"
-            android:label=""
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".Main3Activity"
-            android:label=""
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".Main2Activity"
-            android:label=""
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name=".MainActivity"
+            android:name="com.shashank.platform.furnitureecommerceappui.MainActivity"
             android:label=""
             android:screenOrientation="portrait"
             android:theme="@style/MyAppTheme"
             android:windowSoftInputMode="stateHidden|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Aktivitas lain dengan tema NoActionBar atau MyAppTheme sesuai konteks -->
+        <activity
+            android:name="com.shashank.platform.furnitureecommerceappui.Main2Activity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+
+        <activity
+            android:name="com.shashank.platform.furnitureecommerceappui.Main3Activity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+
+        <activity
+            android:name="com.shashank.platform.furnitureecommerceappui.Main4Activity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+
+        <activity
+            android:name="com.shashank.platform.furnitureecommerceappui.Main5Activity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyAppTheme"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+
+        <activity
+            android:name="com.shashank.platform.furnitureecommerceappui.Main6Activity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+
+        <!-- Aktivitas pilihan -->
+        <activity android:name="com.shashank.platform.furnitureecommerceappui.OptionOneActivity" />
+        <activity android:name="com.shashank.platform.furnitureecommerceappui.OptionTwoActivity" />
+        <activity android:name="com.shashank.platform.furnitureecommerceappui.OptionThreeActivity" />
+
     </application>
 
 </manifest>
