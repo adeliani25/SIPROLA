@@ -7,6 +7,7 @@
     tools:context=".Main2Activity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/shopping_cart_icon"
         android:layout_width="match_parent"
         android:layout_height="125dp"
         android:background="@drawable/card1"

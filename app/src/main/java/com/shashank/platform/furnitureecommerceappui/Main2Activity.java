@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -17,10 +16,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class Main2Activity extends AppCompatActivity {
 
+    // Deklarasi elemen UI
     LinearLayout personLinearLayout;
     FloatingActionButton favorite;
     CardView cactusCardView;
-    CardView responPengajuanCardView; // Tambahkan ini untuk Respon Pengajuan
+    CardView responPengajuanCardView; // CardView untuk Respon Pengajuan
     Button laporanButton;
     Button proposalButton;
     Button berkasButton;
@@ -37,67 +37,67 @@ public class Main2Activity extends AppCompatActivity {
         laporanButton = findViewById(R.id.laporan_button);
         proposalButton = findViewById(R.id.proposal_button);
         berkasButton = findViewById(R.id.berkas_button);
-        responPengajuanCardView = findViewById(R.id.respon_pengajuan_card_view); // Menghubungkan CardView Respon Pengajuan
+        responPengajuanCardView = findViewById(R.id.respon_pengajuan_card_view); // CardView untuk Respon Pengajuan
 
-        // Menambahkan fungsi untuk klik personLinearLayout
+        // Fungsi ketika personLinearLayout diklik, pindah ke Main3Activity
         personLinearLayout.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), Main3Activity.class);
             startActivity(intent);
         });
 
-        // Menambahkan fungsi untuk klik tombol favorite
-        favorite.setOnClickListener(view -> showPopupMenu(view));
+        // Fungsi untuk menampilkan PopupMenu ketika tombol favorite ditekan
+        favorite.setOnClickListener(this::showPopupMenu);
 
-        // Menambahkan fungsi untuk klik CardView cactusCardView
+        // Fungsi ketika cactusCardView diklik, pindah ke Main4Activity
         cactusCardView.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), Main4Activity.class);
             startActivity(intent);
         });
 
-        // Menambahkan fungsi untuk klik proposalButton (respon pengajuan)
+        // Fungsi ketika proposalButton diklik, pindah ke Main5Activity (Respon Pengajuan)
         proposalButton.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), Main5Activity.class);
             startActivity(intent);
         });
 
-        // Menambahkan fungsi untuk klik responPengajuanCardView
+        // Fungsi ketika responPengajuanCardView diklik, pindah ke Main6Activity
         responPengajuanCardView.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), Main6Activity.class);
             startActivity(intent); // Berpindah ke Main6Activity saat Respon Pengajuan ditekan
         });
 
+        // Fungsi ketika laporanButton diklik, pindah ke Main5Activity
         laporanButton.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), Main5Activity.class);
             startActivity(intent);
         });
 
+        // Fungsi ketika berkasButton diklik, pindah ke Main5Activity
         berkasButton.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), Main5Activity.class);
             startActivity(intent);
         });
     }
 
+    // Menampilkan PopupMenu saat tombol favorite ditekan
     private void showPopupMenu(View view) {
         PopupMenu popupMenu = new PopupMenu(this, view);
         popupMenu.getMenuInflater().inflate(R.menu.favorite_menu, popupMenu.getMenu());
 
-        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.option_one:
-                        Intent intent = new Intent(Main2Activity.this, OptionOneActivity.class);
-                        startActivity(intent);
-                        return true;
-                    case R.id.option_two:
-                        // Handle option two click
-                        return true;
-                    case R.id.option_three:
-                        // Handle option three click
-                        return true;
-                    default:
-                        return false;
-                }
+        // Set menu item click listener
+        popupMenu.setOnMenuItemClickListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.option_one:
+                    startActivity(new Intent(Main2Activity.this, OptionOneActivity.class));
+                    return true;
+                case R.id.option_two:
+                    startActivity(new Intent(Main2Activity.this, OptionTwoActivity.class));
+                    return true;
+                case R.id.option_three:
+                    startActivity(new Intent(Main2Activity.this, OptionThreeActivity.class));
+                    return true;
+                default:
+                    return false;
             }
         });
 
