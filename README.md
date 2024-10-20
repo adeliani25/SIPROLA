@@ -1,5 +1,7 @@
 "SI-PROLA"
 
+Sistem Informasi Pengajuan Proposal dan Laporan
+
 Kelompok 4 RAASA
 
 Anggota:
