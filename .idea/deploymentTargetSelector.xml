@@ -4,6 +4,7 @@
     <selectionStates>
       <SelectionState runConfigName="siPROLA">
         <option name="selectionMode" value="DROPDOWN" />
+<<<<<<< HEAD
         <DropdownSelection timestamp="2024-10-18T02:33:28.517040600Z">
           <Target type="DEFAULT_BOOT">
             <handle>
@@ -20,6 +21,16 @@
             </Target>
           </targets>
         </DialogSelection>
+=======
+          <DropdownSelection timestamp="2024-10-09T07:37:08.735424600Z">
+            <Target type="DEFAULT_BOOT">
+              <handle>
+                <DeviceId pluginId="PhysicalDevice" identifier="serial=f0bccc1e1122" />
+              </handle>
+            </Target>
+          </DropdownSelection>
+        <DialogSelection />
+>>>>>>> 9d097f1072524ad950e3e349a6b6b58b78db5dfb
       </SelectionState>
     </selectionStates>
   </component>
